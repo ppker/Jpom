@@ -8,7 +8,7 @@
 # See the Mulan PSL v2 for more details.
 #
 
-FROM openjdk:8
+FROM maven:3.9.6-eclipse-temurin-8
 
 ARG BUILD_DATE
 LABEL build_info="dromara/Jpom build-date:- ${BUILD_DATE}"
@@ -16,7 +16,7 @@ LABEL maintainer="bwcx-jzy <bwcx_jzy@163.com>"
 LABEL documentation="https://jpom.top"
 
 ENV JPOM_HOME=/usr/local/jpom-agent
-ENV JPOM_PKG_VERSION=2.11.10.2
+ENV JPOM_PKG_VERSION=2.11.11.4
 ENV JPOM_PKG=agent-${JPOM_PKG_VERSION}-release.tar.gz
 ENV SHA1_NAME=agent-${JPOM_PKG_VERSION}-release.tar.gz.sha1
 
@@ -26,8 +26,6 @@ ENV JPOM_LOG_PATH=${JPOM_HOME}/logs
 ENV jpom.path=${JPOM_DATA_PATH}
 
 WORKDIR ${JPOM_HOME}
-
-RUN apt-get install -y git
 
 # 时区
 ENV TZ=Asia/Shanghai
